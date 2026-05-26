@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg"><link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./ghl-modal.css">
 </head>
 <body>
 
@@ -336,7 +337,7 @@
             <p class="magnet-desc">How to document hail damage, what insurers actually pay for, your 1-year claim deadline, and the three mistakes that get claims denied. Plain English. Sent to your inbox the moment you sign up.</p>
           </div>
 
-          <form class="form-card" id="guideForm" onsubmit="return handleSubmit(event, 'guideStatus', 'Guide on its way. Check your inbox in the next 2 minutes.')">
+          <form class="form-card" id="guideForm" onsubmit="return handleSubmit(event, 'guideStatus', 'Guide on its way. Check your inbox in the next 2 minutes.', 'storm-guide')">
             <div class="form-title">Get the guide</div>
             <div class="field">
               <label for="g-name">Your name</label>
@@ -416,23 +417,17 @@
     </div>
   </footer>
 
+  <!-- GHL demo modal — loaded externally -->
+  <script src="./ghl-modal.js"></script>
   <script>
-    function handleSubmit(e, statusId, successMsg) {
-      e.preventDefault();
-      const form = e.target;
-      const status = document.getElementById(statusId);
-      const data = new FormData(form);
-      console.log('Bishop Roofing form submission:', Object.fromEntries(data));
-      status.className = 'form-status';
-      status.textContent = 'Sending...';
-      status.style.display = 'block';
-      setTimeout(() => {
-        status.className = 'form-status success';
-        status.textContent = '✓ ' + successMsg;
-        form.reset();
-      }, 700);
-      return false;
-    }
+    fetch('./ghl-modal.html')
+      .then(r => r.text())
+      .then(html => {
+        document.body.insertAdjacentHTML('beforeend', html);
+        initGhlModal();
+      })
+      .catch(err => console.warn('Modal HTML failed to load:', err));
   </script>
+  <script src="./portfolio-badge.js" defer></script>
 </body>
 </html>

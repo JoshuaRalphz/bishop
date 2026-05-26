@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg"><link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./ghl-modal.css">
 </head>
 <body>
 
@@ -248,52 +249,18 @@
     </div>
   </footer>
 
+  <!-- GHL demo modal — loaded externally -->
+  <script src="./ghl-modal.js"></script>
   <script>
-    // Bishop Roofing - Inspection Request webhook (GHL Workflow 1)
-    const GHL_WEBHOOK_INSPECTION = "https://services.leadconnectorhq.com/hooks/kbdCOzP4FlSTaIm6p6zs/webhook-trigger/625aa52b-4086-4719-a02d-f8d232c4b245";
-
-    async function handleSubmit(e, statusId, successMsg) {
-      e.preventDefault();
-      const form = e.target;
-      const status = document.getElementById(statusId);
-      const data = Object.fromEntries(new FormData(form));
-
-      // Split full name into first/last for GHL contact fields
-      const fullName = (data.name || "").trim();
-      const nameParts = fullName.split(/\s+/);
-      data.first_name = nameParts[0] || "";
-      data.last_name = nameParts.slice(1).join(" ") || "";
-
-      // Tag the source for GHL pipeline
-      data.source = "Website — Inspection Form";
-
-      // Show sending state
-      status.className = 'form-status';
-      status.textContent = 'Sending...';
-      status.style.display = 'block';
-
-      try {
-        const response = await fetch(GHL_WEBHOOK_INSPECTION, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        if (!response.ok) {
-          throw new Error(`Webhook returned status ${response.status}`);
-        }
-
-        // Success — workflow is firing in GHL right now
-        status.className = 'form-status success';
-        status.textContent = '✓ ' + successMsg;
-        form.reset();
-      } catch (err) {
-        console.error('Webhook submission error:', err);
-        status.className = 'form-status error';
-        status.textContent = 'Something went wrong. Please call us at (512) 487-3204.';
-      }
-      return false;
-    }
+    // Load the modal HTML fragment + wire form submission
+    fetch('./ghl-modal.html')
+      .then(r => r.text())
+      .then(html => {
+        document.body.insertAdjacentHTML('beforeend', html);
+        initGhlModal();
+      })
+      .catch(err => console.warn('Modal HTML failed to load:', err));
   </script>
+  <script src="./portfolio-badge.js" defer></script>
 </body>
 </html>

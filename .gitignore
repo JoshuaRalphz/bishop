@@ -24,3 +24,10 @@ build/
 
 # Logs
 *.log
+
+# Dev / build scripts (not deployed)
+_preview/
+__pycache__/
+_phase*.py
+_build_guide_pdf.py
+_zip_*.py
