@@ -1696,3 +1696,139 @@ footer {
   line-height: 1.6;
   color: var(--body);
 }
+
+/* ==========================================================
+   COMPREHENSIVE MOBILE OVERRIDES (last cascade — wins)
+   ========================================================== */
+@media (max-width: 760px) {
+  /* Section vertical rhythm — tighter on mobile */
+  section { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .container { padding: 0 18px !important; }
+
+  /* ---------- HERO ---------- */
+  .hero { min-height: auto !important; }
+  .hero-inner { padding: 70px 0 56px !important; }
+  .hero h1 { font-size: 32px !important; line-height: 1.12 !important; letter-spacing: -0.02em !important; }
+  .hero-sub { font-size: 15.5px !important; line-height: 1.55 !important; margin-bottom: 24px !important; }
+  .hero-eyebrow { font-size: 11.5px !important; padding: 6px 12px !important; margin-bottom: 18px !important; }
+  .hero-ctas { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; }
+  .hero-ctas .btn { width: 100% !important; justify-content: center !important; padding: 14px 22px !important; font-size: 14.5px !important; }
+  .hero-trust { gap: 14px 18px !important; margin-top: 28px !important; padding-top: 20px !important; font-size: 12px !important; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-label { font-size: 11.5px !important; }
+  .sec-title { font-size: 26px !important; line-height: 1.18 !important; margin-bottom: 12px !important; }
+  .sec-lede { font-size: 14.5px !important; line-height: 1.6 !important; max-width: 100% !important; }
+  .sec-head-flex { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  .see-all-link { font-size: 13.5px !important; }
+
+  /* ---------- STATS BAND ---------- */
+  .stats-band { padding: 32px 0 !important; }
+  .stats-grid { gap: 24px 14px !important; }
+  .stat-value { font-size: 30px !important; }
+  .stat-label { font-size: 11.5px !important; }
+
+  /* ---------- SERVICES CARDS ---------- */
+  .service { padding: 22px !important; }
+  .service h3 { font-size: 18px !important; }
+  .service p { font-size: 14px !important; line-height: 1.55 !important; }
+  .service-icon { width: 44px !important; height: 44px !important; }
+  .service-icon svg { width: 22px !important; height: 22px !important; }
+  .service-meta { font-size: 12.5px !important; }
+
+  /* ---------- PROCESS STEPS ---------- */
+  .step { padding: 20px !important; }
+  .step-num { font-size: 12px !important; padding: 4px 10px !important; }
+  .step h3 { font-size: 18px !important; margin-top: 8px !important; }
+  .step p { font-size: 14px !important; line-height: 1.55 !important; }
+
+  /* ---------- PAGE HERO ---------- */
+  .page-hero { padding: 50px 0 40px !important; }
+  .page-hero h1 { font-size: 26px !important; line-height: 1.2 !important; }
+  .page-hero-sub { font-size: 14.5px !important; line-height: 1.6 !important; }
+  .page-crumb { font-size: 11.5px !important; margin-bottom: 10px !important; }
+
+  /* ---------- FORMS ---------- */
+  .form-card { padding: 22px !important; }
+  .form-title { font-size: 18px !important; }
+  .field label { font-size: 13px !important; }
+  .field input, .field select, .field textarea {
+    padding: 11px 13px !important;
+    font-size: 16px !important; /* 16px+ prevents iOS zoom on focus */
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .filter-bar { gap: 6px !important; flex-wrap: wrap !important; }
+  .filter-bar-label { font-size: 11.5px !important; width: 100% !important; margin-bottom: 4px !important; }
+  .filter-chip { font-size: 12px !important; padding: 6px 11px !important; }
+  .project-body { padding: 14px 16px 18px !important; }
+  .project-loc { font-size: 11.5px !important; }
+  .project-type { font-size: 14.5px !important; }
+
+  /* ---------- TESTIMONIALS / REVIEWS ---------- */
+  .testimonial { padding: 22px !important; }
+  .testimonial p { font-size: 14.5px !important; line-height: 1.55 !important; }
+  .testimonial-author { font-size: 13px !important; }
+
+  /* ---------- ABOUT — ORIGIN GRID ---------- */
+  .about-origin-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline-year { font-size: 16px !important; }
+  .timeline-title { font-size: 15px !important; }
+  .timeline-desc { font-size: 13.5px !important; }
+
+  /* ---------- TEAM ---------- */
+  .team-photo { font-size: 56px !important; }
+  .team-name { font-size: 17px !important; }
+  .team-role { font-size: 12px !important; }
+  .team-bio { font-size: 13.5px !important; line-height: 1.55 !important; }
+
+  /* ---------- CONTACT PAGE ---------- */
+  .contact-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .contact-info h3 { font-size: 18px !important; }
+  .contact-info p { font-size: 14px !important; }
+  .contact-meta-item { padding: 12px 14px !important; gap: 12px !important; }
+  .contact-meta-label { font-size: 10.5px !important; }
+  .contact-meta-value { font-size: 13.5px !important; }
+  .service-area-list { gap: 8px !important; }
+  .service-area-list span { font-size: 13px !important; padding: 7px 12px !important; }
+
+  /* ---------- LEAD MAGNET ON HOME ---------- */
+  .magnet-section { padding: 40px 0 !important; }
+  .magnet-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .magnet-title { font-size: 26px !important; line-height: 1.2 !important; }
+  .magnet-desc { font-size: 14.5px !important; line-height: 1.6 !important; }
+  .magnet-tag { font-size: 10.5px !important; padding: 4px 12px !important; }
+
+  /* ---------- FAQ ---------- */
+  .faq-question { font-size: 14.5px !important; padding: 16px 18px !important; }
+  .faq-body { padding: 0 18px 18px !important; font-size: 13.5px !important; }
+
+  /* ---------- FOOTER ---------- */
+  footer { padding: 36px 0 24px !important; }
+  .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 24px 18px !important; }
+  .foot-brand { font-size: 17px !important; }
+  .foot-tag { font-size: 12.5px !important; }
+  .foot-license { font-size: 11.5px !important; }
+  .foot-col h4 { font-size: 11.5px !important; }
+  .foot-col a, .foot-col span { font-size: 12.5px !important; }
+  .foot-bottom { flex-direction: column !important; gap: 6px !important; align-items: flex-start !important; font-size: 11.5px !important; }
+  .foot-credit { font-size: 11.5px !important; }
+
+  /* ---------- CERTS / WHY GRID ---------- */
+  .certs-grid { gap: 14px !important; }
+  .why-card { padding: 22px !important; }
+  .why-card h4 { font-size: 16px !important; }
+  .why-card p { font-size: 13.5px !important; line-height: 1.55 !important; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px !important; }
+  .hero-sub { font-size: 14.5px !important; }
+  .sec-title { font-size: 23px !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .stat-value { font-size: 26px !important; }
+  .page-hero h1 { font-size: 23px !important; }
+  .foot-grid { grid-template-columns: 1fr !important; gap: 22px !important; }
+}
